@@ -20,6 +20,9 @@ def get_orders(): # TODO BUENACIFRA
     return orders
 
 def get_customer_name_and_senior_id(): # TODO ROLDAN
+    customer_name = input("Enter customer name: ")
+    if_senior = input("Is the customer a senior citizen? (y/n): ").lower()
+    return customer_name, if_senior
 
 def get_grand_total(): # TODO BERNAS
     grand_total = sum(order["Total"] for order in get_orders)
