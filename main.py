@@ -1,4 +1,23 @@
 def get_orders(): # TODO BUENACIFRA
+    orders = []
+
+    while True:
+        product_name = input("Enter product name: ")
+        price = float(input("Enter price: "))
+        quantity = int(input("Enter quantity: "))
+        total = price * quantity
+
+        orders.append({
+            "Product Name: ": product_name,
+            "Price: ": price,
+            "Quantity: ": quantity,
+            "Total: ": total
+        })
+
+        add_order = input("Add another order? (y/n): ").lower()
+        if add_order != "y":
+            break
+    return orders
 
 def get_customer_name_and_senior_id(): # TODO ROLDAN
 
