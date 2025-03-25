@@ -20,8 +20,8 @@ def get_orders(): # TODO BUENACIFRA
     return orders
 
 def get_customer_name_and_senior_id(): # TODO ROLDAN
-    customer_name = input("Enter customer name: ")
-    senior_id = input("Is the customer a senior citizen? "
+    customer_name = input("\nEnter Customer Name: ")
+    senior_id = input("Enter Senior ID: ? "
     "(Leave blank if not senior citizen)").lower() 
     return customer_name, senior_id
 
@@ -35,15 +35,17 @@ def get_grand_total(orders, senior_id): # TODO BERNAS
 
 def display_orders_customer_name_senior_id_grand_total(): # TODO TERO
     orders = get_orders()
-    customer_name, senior, senior_id = get_customer_name_and_senior_id() #remove senior variable.
-    grand_total = get_grand_total(orders, senior) #remove senior variable.
+    customer_name, senior_id = get_customer_name_and_senior_id() #remove senior variable.
+    grand_total = get_grand_total(orders, senior_id) #remove senior variable.
     
     print("\nItems:")
     for order in orders:
-        print(f"Product Name: {order['Product Name']}, Price: {order['Price']}, Quantity: {order['Quantity']}, Total: {order['Total']}") #Exceeds 80 columns, add spacings dont make it in one line.
+        print(f"Product Name: {order['Product Name']}")
+        print(f"Price: {order['Price']}")
+        print(f"Quantity: {order['Quantity']}")
+        print(f"Total: {order['Total']}")
     print("\nCustomer Name:", customer_name)
-    if senior == "y": #change condition, system won't ask if the user is senior.
-        print("Senior id no.:", senior_id)
+    print("Senior ID No:", senior_id)
     print("Grand total:", grand_total)
 
 def main():
