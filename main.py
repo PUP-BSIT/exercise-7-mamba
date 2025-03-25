@@ -1,8 +1,8 @@
-def get_orders(): # TODO BUENACIFRA
+def get_orders(): # TODO BUENACIFRA 
     orders = []
 
     while True:
-        product_name = input("Enter product name: ")
+        product_name = input("Enter product name: ") #add "\n" for readability and spacings.
         price = float(input("Enter price: "))
         quantity = int(input("Enter quantity: "))
         total = price * quantity
@@ -14,36 +14,36 @@ def get_orders(): # TODO BUENACIFRA
             "Total": total
         })
 
-        add_order = input("Add another order? (y/n): ").lower()
+        add_order = input("Add another order? (y/n): ").lower() #Add spacings "\n"
         if add_order != "y":
             break
     return orders
 
 def get_customer_name_and_senior_id(): # TODO ROLDAN
     customer_name = input("Enter customer name: ")
-    if_senior = input("Is the customer a senior citizen? (y if yes Leave blank if not senior citizen) ").lower()
+    senior = input("Is the customer a senior citizen? (y if yes, Leave blank if not senior citizen)").lower() #Exceeds 80 columns, Spacing, and ":"
     senior_id = ""
-    if if_senior == "y":
-        senior_id = input("Enter senior id")
-    return customer_name, if_senior, senior_id
+    if senior == "y":
+        senior_id = input("Enter senior id") #Add spacing and ":"
+    return customer_name, senior, senior_id
 
-def get_grand_total(orders, if_senior): # TODO BERNAS
+def get_grand_total(orders, senior): # TODO BERNAS
     grand_total = sum(order["Total"] for order in orders)
-    if if_senior == "y":
+    if senior == "y":
         discount = grand_total * 0.10
         grand_total -= discount
     return grand_total
 
 def display_orders_customer_name_senior_id_grand_total(): # TODO TERO
     orders = get_orders()
-    customer_name, if_senior, senior_id = get_customer_name_and_senior_id()
-    grand_total = get_grand_total(orders, if_senior)
+    customer_name, senior, senior_id = get_customer_name_and_senior_id()
+    grand_total = get_grand_total(orders, senior)
     
     print("\nItems:")
     for order in orders:
-        print(f"Product Name: {order['Product Name']}, Price: {order['Price']}, Quantity: {order['Quantity']}, Total: {order['Total']}")
+        print(f"Product Name: {order['Product Name']}, Price: {order['Price']}, Quantity: {order['Quantity']}, Total: {order['Total']}") #Exceeds 80 columns, add spacings dont make it in one line.
     print("\nCustomer Name:", customer_name)
-    if if_senior == "y":
+    if senior == "y":
         print("Senior id no.:", senior_id)
     print("Grand total:", grand_total)
 
