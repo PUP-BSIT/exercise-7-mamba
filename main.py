@@ -21,11 +21,9 @@ def get_orders(): # TODO BUENACIFRA
 
 def get_customer_name_and_senior_id(): # TODO ROLDAN
     customer_name = input("Enter customer name: ")
-    senior = input("Is the customer a senior citizen? (y if yes, Leave blank if not senior citizen)").lower() #Exceeds 80 columns, Spacing, add ":", remove senior variable
-    senior_id = "" 
-    if senior == "y": #change condition, system won't ask if the user is senior.
-        senior_id = input("Enter senior id") #Add spacing and ":"
-    return customer_name, senior, senior_id #remove senior variable.
+    senior_id = input("Is the customer a senior citizen? "
+    "(Leave blank if not senior citizen)").lower() 
+    return customer_name, senior_id
 
 def get_grand_total(orders, senior_id): # TODO BERNAS
     grand_total = sum(order["Total"] for order in orders)
